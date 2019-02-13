@@ -1,20 +1,24 @@
 {
-  "name": "lance-up",
+  "name": "1-Passport-Example",
   "version": "1.0.0",
-  "description": "A matchmaking service that pairs project stakeholders with potential developers and designers, based off of project criteria",
+  "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "lint": "eslint **/*.js --quiet",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "watch": "nodemon server.js"
   },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^6.0.0",
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.14.2",
     "mysql2": "^1.6.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
