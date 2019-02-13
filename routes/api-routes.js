@@ -22,13 +22,15 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password,
       user_type: req.body.user_type
-    }).then(function() {
-      res.redirect(307, "/login");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    })
+      .then(function() {
+        res.redirect(307, "/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
 
   // Route for logging user out
@@ -42,8 +44,7 @@ module.exports = function(app) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
-    }
-    else {
+    } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -53,5 +54,4 @@ module.exports = function(app) {
       });
     }
   });
-
 };
