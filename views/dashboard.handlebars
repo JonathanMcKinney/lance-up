@@ -9,7 +9,8 @@
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
       <h2>Welcome <span class="member-name"></span></h2>
 
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
@@ -17,6 +18,7 @@
       </button>
 
     </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
 
@@ -24,7 +26,8 @@
 
 {{!-- Add Project modal --}}
 
-<div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -34,18 +37,147 @@
         </button>
       </div>
       <div class="modal-body">
-        
-        
+
+        <div class="row">
+
+
+          <div class="col-sm-12">
+            <form>
+              <h1>Let's Post a Job</h1>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Project Title</label>
+                <input type="name" class="form-control" id="projectTitleInput" placeholder="Name of your project">
+              </div>
+
+               <div class="form-group">
+                    <label for="exampleFormControlSelect1">Project Duration</label>
+                    <select class="form-control" id="timelineInput">
+                        <option value="1">1 Week</option>
+                        <option value="2">2 Weeks</option>
+                        <option value="3">3 Weeks</option>
+                        <option value="4">4 Weeks</option>
+                        <option value="5">5 Weeks</option>
+                        <option value="6">6 Weeks</option>
+                        <option value="7">7 Weeks</option>
+                        <option value="8">8 Weeks</option>
+                        <option value="9">9 Weeks</option>
+                        <option value="10">10 Weeks</option>
+                    </select>
+                </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Project Budget ($$$)</label>
+                <input type="name" class="form-control" id="projectBudgetInput" placeholder="You can add additional funds later, if needed">
+              </div>
+
+              <div class="form-group">
+                <label for="custom-checkbox">Required Job Skills</label>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="javascript">
+                      <label class="custom-control-label" for="javascript">JavaScript
+                        /JQuery</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="php">
+                      <label class="custom-control-label" for="php">PHP</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="c">
+                      <label class="custom-control-label" for="c">C++ /C</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="uiFrameworks">
+                      <label class="custom-control-label" for="uiFrameworks">UI Frameworks</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="backEnd">
+                      <label class="custom-control-label" for="backEnd">Back End</label>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="col-sm-4">
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="HTMLCSS">
+                      <label class="custom-control-label" for="HTMLCSS">HTML /CSS</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="agile">
+                      <label class="custom-control-label" for="agile">Agile /Scrumb
+                        Development</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="graphicDesign">
+                      <label class="custom-control-label" for="graphicDesign">Graphic Design</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="wordpress">
+                      <label class="custom-control-label" for="wordpress">WordPress</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="blockchain">
+                      <label class="custom-control-label" for="blockchain">Blockchain</label>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="col-sm-4">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="nodejs">
+                      <label class="custom-control-label" for="nodejs">NodeJS</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="mongoDB">
+                      <label class="custom-control-label" for="mongoDB">MongoDB</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="uiux">
+                      <label class="custom-control-label" for="uiux">UI/UX Design</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="seo">
+                      <label class="custom-control-label" for="seo">SEO Design</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="skills" class="custom-control-input" id="drupal">
+                      <label class="custom-control-label" for="drupal">Drupal</label>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Job Description</label>
+                <textarea class="form-control" id="projectDescription" rows="3"
+                  placeholder="Place all the details on the position here"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-primary" id="submitNewProject" data-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/dashboard.js"></script>
