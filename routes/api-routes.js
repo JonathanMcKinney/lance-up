@@ -54,4 +54,24 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.post("/api/projects", function(req, res) {
+    console.log(req.body);
+    db.Project.create({
+      project_name: req.body.project_name,
+      project_description: req.body.project_description,
+      start_budget: req.body.start_budget,
+      project_length: req.body.project_length,
+      desired_skills: req.body.desired_skills
+    })
+      .then(function(data) {
+        console.log(data);
+        // location.reload();
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
+  });
 };
