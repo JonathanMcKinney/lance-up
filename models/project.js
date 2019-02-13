@@ -39,7 +39,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
   Project.associate = function(models) {
+
     Project.hasMany(models.Dev, {
       onDelete: "cascade"
     });
