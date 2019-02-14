@@ -37,6 +37,10 @@ $(document).ready(function() {
         console.log("created new project");
       });
 
+      $.post("/api/devs").then(function(results){
+        console.log("this is a list of all devs" + results);
+      });
+
       console.log(newProject);
     });
   });

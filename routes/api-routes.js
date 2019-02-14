@@ -55,6 +55,29 @@ module.exports = function(app) {
     }
   });
 
+  app.post("/api/devs", function(req, res) {
+    console.log(req.body);
+    db.Dev.create({
+      name: req.body.name,
+      email: req.body.email,
+      rate: req.body.rate,
+      offered_skills: req.body.offered_skills,
+      portfolio_links: req.body.portfolio_links
+    })
+      .then(function(data) {
+        res.json(data);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  });
+
+  app.get("/api/devs", function(req, res) {
+    db.Dev.findAll({}).then(function(dbDev){
+      res.json(dbDev);
+    });
+  });
+
   app.post("/api/projects", function(req, res) {
     console.log(req.body);
     db.Project.create({
