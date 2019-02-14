@@ -62,7 +62,8 @@ module.exports = function(app) {
       email: req.body.email,
       rate: req.body.rate,
       offered_skills: req.body.offered_skills,
-      portfolio_links: req.body.portfolio_links
+      portfolio_links: req.body.portfolio_links,
+      dev_img: req.body.dev_img
     })
       .then(function(data) {
         res.json(data);

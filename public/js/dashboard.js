@@ -49,4 +49,20 @@ $(document).ready(function() {
       // console.log("this is a list of all devs" + results);
     });
   });
+
+  $("#addDevs").on("click", function(event) {
+    event.preventDefault();
+    $.get("/api/devs").then(function(devs) {
+      console.log(devs[0].dev_img);
+
+      // for (var i = 0; i < devs.length; i++){
+
+      //   var newDiv = $("<div>")
+      //   var devImage = $("<img>").attr({ src: devs[i].dev_img});
+      //   var newCheckbox = $('<input/>').attr({ type: 'checkbox', name:'devCheckboxes'})
+      //   $("#devChoiceForm").prepend(devCheckbox)
+
+      // };
+    });
+  });
 });
