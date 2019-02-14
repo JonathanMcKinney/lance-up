@@ -81,6 +81,7 @@ module.exports = function(app) {
   app.post("/api/projects", function(req, res) {
     console.log(req.body);
     db.Project.create({
+      client_name: req.body.client_name,
       project_name: req.body.project_name,
       project_description: req.body.project_description,
       start_budget: req.body.start_budget,
@@ -88,13 +89,17 @@ module.exports = function(app) {
       desired_skills: req.body.desired_skills
     })
       .then(function(data) {
-        console.log(data);
-        // location.reload();
+        res.json(data);
       })
       .catch(function(err) {
         console.log(err);
-        res.json(err);
         // res.status(422).json(err.errors[0].message);
       });
+  });
+
+  app.get("/api/projects", function(req, res) {
+    db.Project.findAll({}).then(function(dbProject) {
+      res.json(dbProject);
+    });
   });
 };

@@ -20,10 +20,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    remain_budget: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    // remain_budget: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   defaultValue: 
+    // },
 
     project_length: {
       type: DataTypes.INTEGER,
@@ -36,7 +37,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     project_complete: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     }
   });
 

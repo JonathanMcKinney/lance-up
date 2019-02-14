@@ -23,6 +23,12 @@ module.exports = function(sequelize, DataTypes) {
 
     portfolio_links: {
       type: DataTypes.STRING
+    },
+
+    available: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   });
 
