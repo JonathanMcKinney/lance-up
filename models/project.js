@@ -20,14 +20,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    // remain_budget: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   defaultValue: 
-    // },
+    remain_budget: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
 
     project_length: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
 
@@ -42,8 +41,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Project.associate = function(models) {
+  // Project.associate = function(models) {
+  //   Project.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
+  Project.associate = function(models) {
     Project.hasMany(models.Dev, {
       onDelete: "cascade"
     });
