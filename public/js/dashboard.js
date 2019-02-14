@@ -1,13 +1,13 @@
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  var name;
 
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
     name = data.email;
     return name;
   });
+
   $("#submitNewProject").on("click", function(event) {
     event.preventDefault();
 
@@ -28,6 +28,9 @@ $(document).ready(function() {
       start_budget: $("#projectBudgetInput")
         .val()
         .trim(),
+      remain_budget: $("#projectBudgetInput")
+        .val()
+        .trim(),
       project_length: $("#timelineInput")
         .find(":selected")
         .text(),
@@ -42,7 +45,7 @@ $(document).ready(function() {
 
     console.log(newProject);
 
-    $.get("/api/devs").then(function(results){
+    $.get("/api/devs").then(function(results) {
       // console.log("this is a list of all devs" + results);
     });
   });

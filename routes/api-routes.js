@@ -85,6 +85,7 @@ module.exports = function(app) {
       project_name: req.body.project_name,
       project_description: req.body.project_description,
       start_budget: req.body.start_budget,
+      remain_budget: req.body.remain_budget,
       project_length: req.body.project_length,
       desired_skills: req.body.desired_skills
     })
