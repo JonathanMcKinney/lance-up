@@ -192,8 +192,12 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-12">
+                  {{#each devs}}
+                    {{!-- {{#if available}} --}}
+                      <img src="{{dev_img}}" alt="">
+                    {{!-- {{/if}} --}}
+                  {{/each}}
             <form id="devChoiceForm">
-                  
 
               <button type="button" class="btn btn-primary" id="addDevs">Add Developers</button>
 
