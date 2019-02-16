@@ -27,7 +27,7 @@
 {{!-- Add Project modal --}}
 
 <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" style="overflow-y: auto">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,25 +49,26 @@
                 <input type="name" class="form-control" id="projectTitleInput" placeholder="Name of your project">
               </div>
 
-               <div class="form-group">
-                    <label for="exampleFormControlSelect1">Project Duration</label>
-                    <select class="form-control" id="timelineInput">
-                        <option value="1">1 Week</option>
-                        <option value="2">2 Weeks</option>
-                        <option value="3">3 Weeks</option>
-                        <option value="4">4 Weeks</option>
-                        <option value="5">5 Weeks</option>
-                        <option value="6">6 Weeks</option>
-                        <option value="7">7 Weeks</option>
-                        <option value="8">8 Weeks</option>
-                        <option value="9">9 Weeks</option>
-                        <option value="10">10 Weeks</option>
-                    </select>
-                </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Project Duration</label>
+                <select class="form-control" id="timelineInput">
+                  <option value="1">1 Week</option>
+                  <option value="2">2 Weeks</option>
+                  <option value="3">3 Weeks</option>
+                  <option value="4">4 Weeks</option>
+                  <option value="5">5 Weeks</option>
+                  <option value="6">6 Weeks</option>
+                  <option value="7">7 Weeks</option>
+                  <option value="8">8 Weeks</option>
+                  <option value="9">9 Weeks</option>
+                  <option value="10">10 Weeks</option>
+                </select>
+              </div>
 
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Project Budget ($$$)</label>
-                <input type="name" class="form-control" id="projectBudgetInput" placeholder="You can add additional funds later, if needed">
+                <input type="name" class="form-control" id="projectBudgetInput"
+                  placeholder="You can add additional funds later, if needed">
               </div>
 
               <div class="form-group">
@@ -163,9 +164,10 @@
                   placeholder="Place all the details on the position here"></textarea>
               </div>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal" data-dismiss="modal">
-                  Add Devs
-                </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal"
+                data-dismiss="modal">
+                Add Devs
+              </button>
 
             </form>
           </div>
@@ -180,7 +182,7 @@
 </div>
 
 <div class="modal fade" id="addDeveloperModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" style="overflow-y: auto">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -190,27 +192,48 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-sm-12">
-                  {{#each devs}}
-                    {{!-- {{#if available}} --}}
-                      <img src="{{dev_img}}" alt="">
-                    {{!-- {{/if}} --}}
-                  {{/each}}
-            <form id="devChoiceForm">
+        <form id="devChoiceForm">
+          <div class="row">
+            <div class="col-sm-12">
+              {{#each devs}}
+              {{#if available}}
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input" id={{name}}>
+                  </div>
+                  <div class="card">
+                    <img class="card-img-top" src="{{dev_img}}" alt="{{name}}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{name}}</h5>
+                      <ul class="card-text">
+                        <li>Skills: {{offered_skills}}</li>
+                        <li>Rate (/week): {{rate}}</li>
+                        {{#if portfolio_link}}
+                        <li><a href="{{portfolio_link}}">Check out my portfolio: {{portfolio_link}}</a></li>
+                        {{/if}}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <button type="button" class="btn btn-primary" id="addDevs">Add Developers</button>
+              {{/if}}
+              {{/each}}
 
-            </form>
-          </div>
-        </div>
+              <button type=" button" class="btn btn-primary" id="addDevs">Add Developers</button>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="submitNewModal" data-dismiss="modal" data-toggle="modal" data-target="#addProjectModal">Submit</button>
+        </form>
       </div>
     </div>
+
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" id="submitNewModal" data-dismiss="modal" data-toggle="modal"
+      data-target="#addProjectModal">Submit</button>
+  </div>
+</div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

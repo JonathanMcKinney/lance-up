@@ -50,19 +50,20 @@ $(document).ready(function() {
     });
   });
 
-  // $("#addDevs").on("click", function(event) {
-  //   event.preventDefault();
-  //   $.get("/api/devs").then(function(devs) {
-  //     console.log(devs[0].dev_img);
+  $("#addDevs").on("click", function(event) {
+    event.preventDefault();
 
-  //     // for (var i = 0; i < devs.length; i++){
+    $.get("/api/devs").then(function(devs) {
+      console.log(devs[0].dev_img);
 
-  //     //   var newDiv = $("<div>")
-  //     //   var devImage = $("<img>").attr({ src: devs[i].dev_img});
-  //     //   var newCheckbox = $('<input/>').attr({ type: 'checkbox', name:'devCheckboxes'})
-  //     //   $("#devChoiceForm").prepend(devCheckbox)
+      // for (var i = 0; i < devs.length; i++){
 
-  //     // };
-  //   });
-  // });
+      //   var newDiv = $("<div>")
+      //   var devImage = $("<img>").attr({ src: devs[i].dev_img});
+      //   var newCheckbox = $('<input/>').attr({ type: 'checkbox', name:'devCheckboxes'})
+      //   $("#devChoiceForm").prepend(devCheckbox)
+
+      // };
+    });
+  });
 });
