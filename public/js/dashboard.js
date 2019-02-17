@@ -2,6 +2,24 @@ $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
 
+  var state = "expanded";
+  //Check if navbar is expanded or minimized and handle
+  $("#navbar-toggle").click(function() {
+    if (state === "expanded") {
+      $(".sidebar").css("margin-left", "-100px");
+      $("#content").css("width", "93vw")
+      $("#content").css("transition", "width 0.3s")
+      state = "minimized";
+    } else {
+      if (state === "minimized") {
+        $(".sidebar").css("margin-left", "0px");
+        $("#content").css("width", "87vw")
+        $("#content").css("transition", "width 0.3s")
+        state = "expanded";
+      }
+    }
+  });
+
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
     name = data.email;
