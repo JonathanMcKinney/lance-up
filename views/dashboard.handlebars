@@ -1,25 +1,62 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
+<div class="sidebar">
+  <ul class="sidebar-nav">
+    <li>
+      <a id="navbar-toggle"><i class="fa fa-bars menu-icon fa-2x" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <a href="/dashboard">Home <i class="fa fa-home menu-icon fa-2x" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <a href="/logout">log out<i class="fa fa-sign-out-alt menu-icon fa-2x" aria-hidden="true"></i>
       </a>
-    </div>
-  </div>
-</nav>
-<div class="container">
+    </li>
+
+  </ul>
+</div>
+
+<div id="content">
+
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <h2>Welcome <span class="member-name"></span></h2>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
-        Add Project
-      </button>
+      <h2 class="welcome"><span class="member-name"></span></h2>
+
+      <div class="project-nav-container">
+        <div class="project-nav">
+          {{!-- sample entry, handlebars should make this in the end --}}
+          <div class="proj-container">
+            <a href="#" class="project-nav-tab">
+              <p class="proj-text">Project 1</p>
+            </a>
+          </div>
+
+          <a href="#" class="add-project" data-toggle="modal" data-target="#addProjectModal">
+            <i class="fas fa-plus-square"></i>
+          </a>
+        </div>
+        <div class="line"></div>
+      </div>
+
+      {{!-- we will just toggle this to disply: none; IF there are no projects in the database for the logged in user --}}
+      <div class="new-project-jumbotron jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Let's get started!</h1>
+
+          <p class="lead">You don't seem to have any active projects yet, let's fix that! Click the "Add Project" button below to start the process!</p>
+          <button type="button" class="new-project btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
+            Add Project
+          </button>
+
+        </div>
+      </div>
+
+
 
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
   </div>
+
 </div>
 
 
@@ -49,25 +86,26 @@
                 <input type="name" class="form-control" id="projectTitleInput" placeholder="Name of your project">
               </div>
 
-               <div class="form-group">
-                    <label for="exampleFormControlSelect1">Project Duration</label>
-                    <select class="form-control" id="timelineInput">
-                        <option value="1">1 Week</option>
-                        <option value="2">2 Weeks</option>
-                        <option value="3">3 Weeks</option>
-                        <option value="4">4 Weeks</option>
-                        <option value="5">5 Weeks</option>
-                        <option value="6">6 Weeks</option>
-                        <option value="7">7 Weeks</option>
-                        <option value="8">8 Weeks</option>
-                        <option value="9">9 Weeks</option>
-                        <option value="10">10 Weeks</option>
-                    </select>
-                </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Project Duration</label>
+                <select class="form-control" id="timelineInput">
+                  <option value="1">1 Week</option>
+                  <option value="2">2 Weeks</option>
+                  <option value="3">3 Weeks</option>
+                  <option value="4">4 Weeks</option>
+                  <option value="5">5 Weeks</option>
+                  <option value="6">6 Weeks</option>
+                  <option value="7">7 Weeks</option>
+                  <option value="8">8 Weeks</option>
+                  <option value="9">9 Weeks</option>
+                  <option value="10">10 Weeks</option>
+                </select>
+              </div>
 
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Project Budget ($$$)</label>
-                <input type="name" class="form-control" id="projectBudgetInput" placeholder="You can add additional funds later, if needed">
+                <input type="name" class="form-control" id="projectBudgetInput"
+                  placeholder="You can add additional funds later, if needed">
               </div>
 
               <div class="form-group">
@@ -163,9 +201,10 @@
                   placeholder="Place all the details on the position here"></textarea>
               </div>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal" data-dismiss="modal">
-                  Add Devs
-                </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal"
+                data-dismiss="modal">
+                Add Devs
+              </button>
 
             </form>
           </div>
@@ -192,11 +231,11 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-12">
-                  {{#each devs}}
-                    {{!-- {{#if available}} --}}
-                      <img src="{{dev_img}}" alt="">
-                    {{!-- {{/if}} --}}
-                  {{/each}}
+            {{#each devs}}
+            {{!-- {{#if available}} --}}
+            <img src="{{dev_img}}" alt="">
+            {{!-- {{/if}} --}}
+            {{/each}}
             <form id="devChoiceForm">
 
               <button type="button" class="btn btn-primary" id="addDevs">Add Developers</button>
@@ -207,7 +246,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="submitNewModal" data-dismiss="modal" data-toggle="modal" data-target="#addProjectModal">Submit</button>
+        <button type="button" class="btn btn-primary" id="submitNewModal" data-dismiss="modal" data-toggle="modal"
+          data-target="#addProjectModal">Submit</button>
       </div>
     </div>
   </div>
