@@ -1,2 +1,2 @@
 # lance-up
-## [View sign up with LanceUp Now &rarr;](https://www.{deployed site url}.com)
+## [Sign up with LanceUp Now! &rarr;](https://www.{deployedsiteurl}.com)
