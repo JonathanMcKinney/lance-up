@@ -20,8 +20,8 @@ SIDEBAR
 
 .sidebar {
   color: #ffffff;
-  width: 10vw;
-  max-width: 10vw;
+  width: 5vw;
+  max-width: 5vw;
   height: 100vh;
   float: left;
   position: fixed;
@@ -29,8 +29,7 @@ SIDEBAR
   display: block;
   -webkit-transition: margin 0.3s;
   transition: margin 0.3s;
-flex:1;
-
+  flex: 1;
 }
 #navbar-toggle {
   cursor: pointer;
@@ -46,11 +45,10 @@ flex:1;
   float: left;
   width: 100%;
   list-style: none;
-  margin: 30vh 0 0 0 ;
+  margin: 10vh 0 0 0 ;
   padding: 0;
 }
 .sidebar-nav li a {
-  padding-left: 20px;
   font-size: 16px;
   text-decoration: none;
   color: #ffffff;
@@ -59,7 +57,7 @@ flex:1;
   width: 100%;
   height: 70px;
   line-height: 25px;
-  padding: 20px;
+  padding: 20px 25px 20px 0px;
   vertical-align: center;
   transition-property: width;
   transition-duration: 0.3s;
@@ -80,8 +78,8 @@ CONTENT
 
 #content {
   position: absolute;
-  width: 85vw;
-  height: 90vh;
+  width: 95vw;
+  height: 100vh;
   right: 0;
   top: 10vh;
   border-radius: 25px 0px 0px 0px;
@@ -100,7 +98,6 @@ CONTENT
   height: .8vh;
   width: 100%;
   background-color: rgba(56, 56, 56, 0.3);
-
 }
 
 .project{
@@ -127,9 +124,9 @@ height: 5vh;
 }
 
 .project-nav-tab:hover {
-  color: #383838;
+  color: #0069D8;
   text-decoration: none;
-  border-bottom: 0.8vh solid #383838;
+  border-bottom: 0.8vh solid #0069D8;
   border-spacing: 1vh;
   transition: border-bottom 0.3s;
 
@@ -138,6 +135,7 @@ height: 5vh;
 .proj-text {
   padding-bottom: 0.33vh;
   display: inline;
+  color: rgba(56, 56, 56, 0.3);
 }
 
 .proj-container {
@@ -145,7 +143,7 @@ height: 5vh;
 }
 
 .proj-text:hover {
-
+  color: #0069D8;
 }
 
 .add-project {
@@ -159,9 +157,9 @@ height: 5vh;
 }
 
 .add-project:hover {
-  color: #383838;
+  color: #0069D8;
   text-decoration: none;
-  border-bottom: 0.8vh solid #383838;
+  border-bottom: 0.8vh solid #0069D8;
   border-spacing: 1vh;
   transition: border-bottom 0.3s;
 
@@ -192,4 +190,9 @@ height: 5vh;
 .display-4 {
   margin-top: 8vh;
   font-weight: 600;
+}
+
+.proj-details {
+  color: #383838;
+  text-align: center;
 }

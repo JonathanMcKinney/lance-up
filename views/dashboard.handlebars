@@ -1,13 +1,10 @@
 <div class="sidebar">
   <ul class="sidebar-nav">
     <li>
-      <a id="navbar-toggle"><i class="fa fa-bars menu-icon fa-2x" aria-hidden="true"></i></a>
+      <a href="/dashboard"><i class="fa fa-home menu-icon fa-2x" aria-hidden="true"></i></a>
     </li>
     <li>
-      <a href="/dashboard">Home <i class="fa fa-home menu-icon fa-2x" aria-hidden="true"></i></a>
-    </li>
-    <li>
-      <a href="/logout">log out<i class="fa fa-sign-out-alt menu-icon fa-2x" aria-hidden="true"></i>
+      <a href="/logout"><i class="fa fa-sign-out-alt menu-icon fa-2x" aria-hidden="true"></i>
       </a>
     </li>
 
@@ -26,9 +23,15 @@
         <div class="project-nav">
           {{!-- sample entry, handlebars should make this in the end --}}
           <div class="proj-container">
+            {{#each projects}}
             <a href="#" class="project-nav-tab">
-              <p class="proj-text">Project 1</p>
+              <p class="proj-text">{{project_name}}</p>
             </a>
+            {{else}}
+            <a href="#" class="project-nav-tab">
+              <p class="proj-text">NO PROJECTS ADDED - PLACEHOLDER</p>
+            </a>
+            {{/each}}
           </div>
 
           <a href="#" class="add-project" data-toggle="modal" data-target="#addProjectModal">
@@ -39,17 +42,35 @@
       </div>
 
       {{!-- we will just toggle this to disply: none; IF there are no projects in the database for the logged in user --}}
-      <div class="new-project-jumbotron jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Let's get started!</h1>
-
-          <p class="lead">You don't seem to have any active projects yet, let's fix that! Click the "Add Project" button below to start the process!</p>
-          <button type="button" class="new-project btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
-            Add Project
-          </button>
-
+      {{#each projects}}
+        <div class="row proj-details" id="{{id}}">
+          <div class="col-md-4">
+              <p>Project Name: {{project_name}}</p>
+              <p>Starting Budget: {{start_budget}}</p>
+              <p>Remaining Budget: {{remain_budget}}</p>
+              <p>Timeline: {{project_length}}</p>
+          </div>
+          <div class="col-md-4">
+              <p>Required Technologies: {{desired_skills}}</p>
+          </div>
+          <div class="col-md-4">
+              <p>Project Details: {{project_description}}</p>
+          </div>
         </div>
-      </div>
+      {{else}}
+        <div class="new-project-jumbotron jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">Let's get started!</h1>
+
+            <p class="lead">You don't seem to have any active projects yet, let's fix that! Click the "Add Project" button below to start the process!</p>
+            <button type="button" class="new-project btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
+              Add Project
+            </button>
+
+          </div>
+        </div>
+      {{/each}}
+      
 
 
 
@@ -208,6 +229,7 @@
 
             </form>
           </div>
+
         </div>
 
       </div>
@@ -270,8 +292,7 @@
       data-target="#addProjectModal">Submit</button>
   </div>
 </div>
-</div>
-</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>

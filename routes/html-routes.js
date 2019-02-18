@@ -46,9 +46,11 @@ module.exports = function(app) {
 
   app.get("/dashboard", isAuthenticated, function(req, res) {
     db.Dev.findAll({}).then(function(dbDevs) {
-      console.log(dbDevs);
-      res.render("dashboard", {
-        devs: dbDevs
+      db.Project.findAll({}).then(function(dbProjects) {
+        res.render("dashboard", {
+          devs: dbDevs,
+          projects: dbProjects
+        });
       });
     });
   });

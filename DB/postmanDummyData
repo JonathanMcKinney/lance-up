@@ -1,0 +1,20 @@
+{
+	"name": "Alex",
+	"email": "alex@foo.com",
+	"rate": 1000,
+	"offered_skills": "HTML, CSS, JavaScript, UI libraries",
+	"portfolio_link": "",
+	"available": true,
+	"dev_img": "https://media.giphy.com/media/jIsgja3R661b2/giphy.gif"
+}
+
+{
+    client_name: "test@me.com",
+    project_name: "Test Project",
+    project_description: "Test project description",
+    start_budget: "10000",
+    remain_budget: "10000",
+    project_length: "3 weeks",
+    desired_skills: "HTML, CSS, JavaScript, UI libraries",
+    project_complete: "0"
+}
