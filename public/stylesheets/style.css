@@ -261,11 +261,6 @@ figure {
     height: 40vh;
 }
 
-.container {
-    margin: 0 auto;
-
-}
-
 .card {
     transition: 0.6s;
     transform-style: preserve-3d;
