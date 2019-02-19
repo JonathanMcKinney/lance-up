@@ -62,7 +62,12 @@ SIGN UP
 LOG IN
 ============================
 */
-
+.here{
+  color: white;
+  font-weight: 650;
+  font-size: 20px;
+  margin-left: 2%;
+}
 /* 
 ============================
 SIDEBAR
