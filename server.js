@@ -21,6 +21,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(require("body-parser").urlencoded({ extended: true }));
 
 // Handlebars
 app.engine(

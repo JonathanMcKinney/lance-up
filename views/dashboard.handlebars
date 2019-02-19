@@ -1,13 +1,10 @@
 <div class="sidebar">
   <ul class="sidebar-nav">
     <li>
-      <a id="navbar-toggle"><i class="fa fa-bars menu-icon fa-2x" aria-hidden="true"></i></a>
+      <a href="/dashboard"><i class="hvr-grow fa fa-home menu-icon fa-2x" aria-hidden="true"></i></a>
     </li>
     <li>
-      <a href="/dashboard">Home <i class="fa fa-home menu-icon fa-2x" aria-hidden="true"></i></a>
-    </li>
-    <li>
-      <a href="/logout">log out<i class="fa fa-sign-out-alt menu-icon fa-2x" aria-hidden="true"></i>
+      <a href="/logout"><i class="hvr-grow fa fa-sign-out-alt menu-icon fa-2x" aria-hidden="true"></i>
       </a>
     </li>
 
@@ -26,9 +23,15 @@
         <div class="project-nav">
           {{!-- sample entry, handlebars should make this in the end --}}
           <div class="proj-container">
+            {{#each projects}}
             <a href="#" class="project-nav-tab">
-              <p class="proj-text">Project 1</p>
+              <p class="proj-text">{{project_name}}</p>
             </a>
+            {{else}}
+            <a href="#" class="project-nav-tab">
+              <p class="proj-text">Please Add Project ===></p>
+            </a>
+            {{/each}}
           </div>
 
           <a href="#" class="add-project" data-toggle="modal" data-target="#addProjectModal">
@@ -39,17 +42,80 @@
       </div>
 
       {{!-- we will just toggle this to disply: none; IF there are no projects in the database for the logged in user --}}
+      {{#each projects}}
+
+
+      <div class="container projDetailsCard">
+        <div class="card proj-details " id="project{{id}}">
+          <figure class="front">
+            <div class="caption">
+              <h2>Project Name: {{project_name}}</h2>
+              <p>Project Details: {{project_description}}</p>
+            </div>
+          </figure>
+
+          <figure class="back">
+            <div class="caption">
+
+              <dl>
+                <p><strong>Starting Budget: </strong>{{start_budget}}</p>
+                <p><strong>Remaining Budget: </strong><span value="{{remain_budget}}" id="remainBudget">{{remain_budget}}</span></p>
+                <p><strong>Timeline: </strong><span value="{{project_length}}" id="timeline">{{project_length}}</span></p>
+                <p><strong>Required Technologies: </strong><span value="{{desired_skills}}" id="desiredSkills">{{desired_skills}}</span></p>
+                <p><strong>Dev Team Members: </strong><span id="devTeam">{{dev_team}}</span></p>
+              </dl>
+
+            </div>
+          </figure>
+        </div>
+        
+      </div>
+
+      <div class="container">
+        <button type="button" class="btn btn-primary big-button" data-toggle="modal" data-target="#addDeveloperModal"
+          data-dismiss="modal">
+          Add Devs
+        </button>
+      </div>
+
+      
+
+
+      {{!-- <div class="row proj-details" id="{{id}}">
+          <div class="col-md-4">
+              <p><strong>Project Name: </strong><span class="projectName" id="{{project_name}}">{{project_name}}</span></p>
+              <p><strong>Starting Budget: </strong>{{start_budget}}</p>
+              <p><strong>Remaining Budget: </strong><span value="{{remain_budget}}" id="remainBudget">{{remain_budget}}</span></p>
+              <p><strong>Timeline: </strong><span value="{{project_length}}" id="timeline">{{project_length}}</span></p>
+          </div>
+          <div class="col-md-4">
+              <p><strong>Required Technologies: </strong><span value="{{desired_skills}}" id="desiredSkills">{{desired_skills}}</span></p>
+              <p><strong>Dev Team Members: </strong><span id="devTeam">{{dev_team}}</span></p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal"
+                data-dismiss="modal" id="addDevButton">
+                Add Devs
+              </button>
+          </div>
+          <div class="col-md-4">
+              <p><strong>Project Details: </strong>{{project_description}}</p>
+          </div>
+        </div> --}}
+      {{else}}
       <div class="new-project-jumbotron jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Let's get started!</h1>
 
-          <p class="lead">You don't seem to have any active projects yet, let's fix that! Click the "Add Project" button below to start the process!</p>
-          <button type="button" class="new-project btn btn-primary" data-toggle="modal" data-target="#addProjectModal">
+          <p class="lead">You don't seem to have any active projects yet, let's fix that! Click the "Add Project" button
+            below to start the process!</p>
+          <button type="button" class="new-project btn btn-primary hvr-grow" data-toggle="modal"
+            data-target="#addProjectModal">
             Add Project
           </button>
 
         </div>
       </div>
+      {{/each}}
+
 
 
 
@@ -201,13 +267,11 @@
                   placeholder="Place all the details on the position here"></textarea>
               </div>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDeveloperModal"
-                data-dismiss="modal">
-                Add Devs
-              </button>
+
 
             </form>
           </div>
+
         </div>
 
       </div>
@@ -232,46 +296,41 @@
         <form id="devChoiceForm">
           <div class="row">
             <div class="col-sm-12">
+
               {{#each devs}}
               {{#if available}}
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="dev{{id}}">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input" id={{name}}>
+                    <input type="checkbox" name="developers" aria-label="Checkbox for following text input"
+                      id="{{name}}">
                   </div>
                   <div class="card">
                     <img class="card-img-top" src="{{dev_img}}" alt="{{name}}">
                     <div class="card-body">
                       <h5 class="card-title">{{name}}</h5>
                       <ul class="card-text">
-                        <li>Skills: {{offered_skills}}</li>
-                        <li>Rate (/week): {{rate}}</li>
-                        {{#if portfolio_link}}
-                        <li><a href="{{portfolio_link}}">Check out my portfolio: {{portfolio_link}}</a></li>
-                        {{/if}}
-               {{/if}}
-               {{/each}}
+                        <li>Skills: <span value="{{offered_skills}}"
+                            class="devSkills">{{offered_skills}}</span>{{offered_skills}}</li>
+                        <li>Rate (/week): <span value="{{rate}}" class="devRate">{{rate}}</span></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
+              {{/if}}
+              {{/each}}
 
-
-              <button type=" button" class="btn btn-primary" id="addDevs">Add Developers</button>
+              <button type=" button" class="btn btn-primary" id="submitDevs" data-dismiss="modal">Submit Team</button>
 
         </form>
       </div>
     </div>
 
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" id="submitNewModal" data-dismiss="modal" data-toggle="modal"
-      data-target="#addProjectModal">Submit</button>
-  </div>
 </div>
-</div>
-</div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
