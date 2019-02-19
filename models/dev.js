@@ -37,13 +37,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Dev.associate = function(models) {
-  //   Dev.belongsTo(models.Project, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Dev.associate = function(models) {
+    Dev.belongsTo(models.Project, {
+      foreignKey: "projectID"
+    });
+  };
 
   return Dev;
 };

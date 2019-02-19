@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var bodyParser = require("body-parser");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -74,7 +75,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/devs", function(req, res) {
-    db.Dev.findAll({}).then(function(dbDev){
+    db.Dev.findAll({}).then(function(dbDev) {
       res.json(dbDev);
     });
   });
@@ -88,7 +89,8 @@ module.exports = function(app) {
       start_budget: req.body.start_budget,
       remain_budget: req.body.remain_budget,
       project_length: req.body.project_length,
-      desired_skills: req.body.desired_skills
+      desired_skills: req.body.desired_skills,
+      dev_team: ""
     })
       .then(function(data) {
         res.json(data);
@@ -97,6 +99,46 @@ module.exports = function(app) {
         console.log(err);
         // res.status(422).json(err.errors[0].message);
       });
+  });
+
+  // app.put("/api/projects/:projectName", function(req, res) {
+  //   db.Project.update(
+  //     { dev_team: req.body },
+  //     { where: {project_name: req.params.projectName} }
+  //   ).then(function(data) {
+  //     console.log()
+  //       res.json(data);
+  //     })
+  //     .catch(function(err) {
+  //       console.log(err);
+  //       // res.status(422).json(err.errors[0].message);
+  //     });
+  // });
+
+
+  app.put("/api/projects/:projectName", function(req, res) {
+    console.log(req.body)
+    db.Project.update(
+      {
+        dev_team: req.body.devs
+      },
+      {
+        where: {
+          project_name: req.params.projectName
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    })
+    .catch(err)
+  });
+
+  app.get("/api/projects/:projectName", function(req, res) {
+    db.Project.findAll({
+      where: { project_name: req.params.projectName }
+    }).then(function(dbProject) {
+      res.json(dbProject);
+    });
   });
 
   app.get("/api/projects", function(req, res) {

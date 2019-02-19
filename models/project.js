@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     project_description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
 
@@ -34,25 +34,25 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+
     project_complete: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+
+    dev_team: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   });
 
-  // Project.associate = function(models) {
-  //   Project.belongsTo(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-
   Project.associate = function(models) {
     Project.hasMany(models.Dev, {
-      onDelete: "cascade"
+      foreignKey: "projectID",
+      as: "developers"
     });
   };
+  
   return Project;
 };
