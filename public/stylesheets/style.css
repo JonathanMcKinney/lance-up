@@ -124,12 +124,12 @@ CONTENT
 #content {
   position: absolute;
   width: 95vw;
-  height: 100vh;
+  height: 200%;
+  overflow: hidden;
   right: 0;
   top: 10vh;
   border-radius: 25px 0px 0px 0px;
   background: #ffffff;
-  
 }
 
 .welcome {
